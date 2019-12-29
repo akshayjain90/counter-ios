@@ -13,6 +13,11 @@
 		3B2DFEAF23B583E300705165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DFEAE23B583E300705165 /* Assets.xcassets */; };
 		3B2DFEB223B583E300705165 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DFEB123B583E300705165 /* Preview Assets.xcassets */; };
 		3B2DFEB523B583E300705165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2DFEB323B583E300705165 /* LaunchScreen.storyboard */; };
+		3B2DFEBD23B5889200705165 /* CounterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DFEBC23B5889200705165 /* CounterRow.swift */; };
+		3B2DFEBF23B588BC00705165 /* Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DFEBE23B588BC00705165 /* Count.swift */; };
+		3B2DFEC123B6976200705165 /* AddCounterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DFEC023B6976200705165 /* AddCounterRow.swift */; };
+		3B2DFEC723B6E2BA00705165 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DFEC423B6E2B900705165 /* UserData.swift */; };
+		3B2DFEC823B6E2BA00705165 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2DFEC523B6E2BA00705165 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		3B2DFEB123B583E300705165 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B2DFEB423B583E300705165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B2DFEB623B583E300705165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B2DFEBC23B5889200705165 /* CounterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterRow.swift; sourceTree = "<group>"; };
+		3B2DFEBE23B588BC00705165 /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
+		3B2DFEC023B6976200705165 /* AddCounterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCounterRow.swift; sourceTree = "<group>"; };
+		3B2DFEC423B6E2B900705165 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = ../../../Downloads/HandlingUserInput/Complete/Landmarks/Landmarks/Models/UserData.swift; sourceTree = "<group>"; };
+		3B2DFEC523B6E2BA00705165 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Data.swift; path = ../../../Downloads/HandlingUserInput/Complete/Landmarks/Landmarks/Models/Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,8 @@
 		3B2DFEA723B583E000705165 /* Counter */ = {
 			isa = PBXGroup;
 			children = (
+				3B2DFEC523B6E2BA00705165 /* Data.swift */,
+				3B2DFEC423B6E2B900705165 /* UserData.swift */,
 				3B2DFEA823B583E000705165 /* AppDelegate.swift */,
 				3B2DFEAA23B583E000705165 /* SceneDelegate.swift */,
 				3B2DFEAC23B583E000705165 /* ContentView.swift */,
@@ -63,6 +75,9 @@
 				3B2DFEB323B583E300705165 /* LaunchScreen.storyboard */,
 				3B2DFEB623B583E300705165 /* Info.plist */,
 				3B2DFEB023B583E300705165 /* Preview Content */,
+				3B2DFEBC23B5889200705165 /* CounterRow.swift */,
+				3B2DFEBE23B588BC00705165 /* Count.swift */,
+				3B2DFEC023B6976200705165 /* AddCounterRow.swift */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -147,8 +162,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B2DFEA923B583E000705165 /* AppDelegate.swift in Sources */,
+				3B2DFEBF23B588BC00705165 /* Count.swift in Sources */,
+				3B2DFEC723B6E2BA00705165 /* UserData.swift in Sources */,
 				3B2DFEAB23B583E000705165 /* SceneDelegate.swift in Sources */,
 				3B2DFEAD23B583E000705165 /* ContentView.swift in Sources */,
+				3B2DFEBD23B5889200705165 /* CounterRow.swift in Sources */,
+				3B2DFEC823B6E2BA00705165 /* Data.swift in Sources */,
+				3B2DFEC123B6976200705165 /* AddCounterRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +313,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = genericgenome.Counter;
+				PRODUCT_BUNDLE_IDENTIFIER = "genericgenome-meemi.counter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -313,7 +333,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = genericgenome.Counter;
+				PRODUCT_BUNDLE_IDENTIFIER = "genericgenome-meemi.counter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
