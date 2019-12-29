@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CounterRow: View {
-    var counter: Count
+    @State var counter: Count
     @EnvironmentObject var userData: UserData
     
     var counterIndex: Int {
@@ -18,15 +18,17 @@ struct CounterRow: View {
 
     var body: some View {
         HStack {
-            Text(counter.title)
+            TextField("Add Counter", text: $counter.title)
                     .font(.headline)
-                    .fontWeight(.heavy)
                     .padding()
+                .onTapGesture {
+                    
+            }
             Spacer()
         
             Image("minus-counter").onTapGesture {self.userData.countersData[self.counterIndex].value -= 1
             }
-            Text(String(counter.value)).frame(width: 20, height: nil)
+            Text(String(counter.value)).frame(width: 50, height: nil)
             Image("plus-counter").onTapGesture {self.userData.countersData[self.counterIndex].value += 1
             }
         }

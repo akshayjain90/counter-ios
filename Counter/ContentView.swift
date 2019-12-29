@@ -50,15 +50,16 @@ struct ContentView: View {
             
             VStack {
                 List{
-                    ForEach(userData.countersData) {countr in CounterRow(counter :countr).environmentObject(self.userData).listRowInsets(EdgeInsets())
+                    ForEach(userData.countersData) {
+                        countr in if(countr != self.userData.countersData.last) { CounterRow(counter :countr).environmentObject(self.userData).listRowInsets(EdgeInsets())
+                        }
                     }
                 }.blur(radius: keyboardHeight > 0.0 ? 10 : 0)
-                .onReceive(showPublisher.merge(with: hidePublisher)) { (height) in
-                        self.keyboardHeight = height
-                    }
-            
+                
                 Spacer()
-                AddCounterRow()
+                AddCounterRow(index : -1).environmentObject(self.userData)
+            }.onReceive(showPublisher.merge(with: hidePublisher)) { (height) in
+                self.keyboardHeight = height
             }
         }
     }

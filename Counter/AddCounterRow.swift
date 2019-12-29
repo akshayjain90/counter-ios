@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct AddCounterRow: View {
-    @State private var title: String = ""
+    @EnvironmentObject var userData: UserData
+    @State private var counter: Count
     @State private var keyboardHeight: CGFloat = 0
     
     private let showPublisher = NotificationCenter.Publisher.init(
@@ -44,6 +45,7 @@ struct AddCounterRow: View {
         }
     }
     
+
     var body: some View {
         VStack {
         HStack {
@@ -52,10 +54,9 @@ struct AddCounterRow: View {
                     .padding(.horizontal)
             }
            Spacer()
-           Image("minus-counter")
-           Text(String(0))
-           .frame(width: 20, height: nil)
-           Image("plus-counter")
+            Image("minus-counter").onTapGesture {self.value -= 1}
+            Text("\(self.value)").frame(width: 50, height: nil)
+            Image("plus-counter").onTapGesture {self.value += 1}
         }
         .animation(.default)
         .overlay(
@@ -68,27 +69,35 @@ struct AddCounterRow: View {
             if (keyboardHeight > 0.0) {
                 HStack {
                     Image(systemName: "trash")
-                    .modifier(DismissingKeyboard())
                     .padding(.horizontal, 50)
                     .padding([.top, .bottom])
                     .overlay(
                            RoundedRectangle(cornerRadius: 5)
                              .stroke(Color.black, lineWidth: 1)
                     ).padding()
+                    .onTapGesture {
+                       self.title = ""
+                       self.value = 0
+                        UIApplication.shared.endEditing()
+                    }
                    Spacer()
                    Text("Add")
                     .font(.headline)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                    .modifier(DismissingKeyboard())
                     .padding(.horizontal, 50)
                     .padding([.top, .bottom])
                     .overlay(
                            RoundedRectangle(cornerRadius: 5)
                              .stroke(Color.black, lineWidth: 1)
                     ).padding()
+                    .onTapGesture {
+                       self.userData.countersData.append(Count(id: UUID.init(), title: self.title, value: self.value))
+                       self.title = ""
+                       self.value = 0
+                       UIApplication.shared.endEditing()
+                    }
                 }
-                
             }
 
         } .offset(y: -1.0 * keyboardHeight)
@@ -100,8 +109,15 @@ struct AddCounterRow: View {
     
 }
 
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+
 struct AddCounterRow_Previews: PreviewProvider {
     static var previews: some View {
-        AddCounterRow()
+        AddCounterRow(index: -1)
     }
 }
